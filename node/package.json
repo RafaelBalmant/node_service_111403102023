@@ -1,0 +1,14 @@
+{
+  "name": "docker",
+  "packageManager": "yarn@3.6.3",
+  "scripts": {
+    "dev": "npx nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "3.0.1"
+  },
+  "dependencies": {
+    "express": "4.18.2",
+    "amqplib": "0.10.3"
+  }
+}
