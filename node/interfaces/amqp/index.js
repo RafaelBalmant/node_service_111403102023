@@ -1,5 +1,11 @@
 const amqplib = require("amqplib");
 
+/**
+   * The purpose of this file is to facilitate communication between the package and our system, 
+   * thereby adding an extra layer of security to enforce, monitor, or implement any necessary 
+   * measures within the system.
+   * @param {object} connection - The connection object that is created by the amqplib.connect() method.
+*/
 
 class amqp {
   channel;

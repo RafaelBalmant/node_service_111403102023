@@ -2,6 +2,12 @@ const connect = require("../connect");
 const orders = require("./orders");
 const shipments = require("./shipments");
 
+/**
+   * This file is responsible for starting all the dependencies necessary for the operation of the queues at the AMQP communication level.
+   * @param {object} connection - The connection object that is created by the amqplib.connect() method.
+*/
+
+
 async function initQueues() {
 
     async function createQueues () {
@@ -9,7 +15,7 @@ async function initQueues() {
 
         const ordersQueue = new orders(connection);
         const shipmentsQueue = new shipments(connection);
-        
+
         await ordersQueue.createQueue(ordersQueue.name, ordersQueue.options);
         await shipmentsQueue.createQueue(shipmentsQueue.name, shipmentsQueue.options);
     }
