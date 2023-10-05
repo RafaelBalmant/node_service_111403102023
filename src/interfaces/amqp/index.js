@@ -19,7 +19,6 @@ class amqp {
       const channel = await this.connection.createChannel();
       const newQueue = channel.assertQueue(name, type);
       console.log("created queue: ", name);
-      channel.close();
       return newQueue;
     } catch (error) {
       console.log(error);

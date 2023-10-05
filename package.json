@@ -2,7 +2,7 @@
   "name": "docker",
   "packageManager": "yarn@3.6.3",
   "scripts": {
-    "dev": "npx nodemon index.js"
+    "dev": "npx nodemon src/index.js"
   },
   "devDependencies": {
     "nodemon": "3.0.1"
