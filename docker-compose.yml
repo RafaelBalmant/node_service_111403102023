@@ -14,10 +14,10 @@ services:
       - node-network
   node:
     build: 
-      context: ./node
+      context: .
       dockerfile: Dockerfile
     volumes:
-      - ./node:/var/projects/node
+      - .:/var/projects/node
     ports:
       - "3000:3000"
     networks:

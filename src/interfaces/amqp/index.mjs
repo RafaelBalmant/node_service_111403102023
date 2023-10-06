@@ -1,4 +1,4 @@
-const amqplib = require("amqplib");
+import amqplib from "amqplib";
 
 /**
    * The purpose of this file is to facilitate communication between the package and our system, 
@@ -19,7 +19,6 @@ class amqp {
       const channel = await this.connection.createChannel();
       const newQueue = channel.assertQueue(name, type);
       console.log("created queue: ", name);
-      channel.close();
       return newQueue;
     } catch (error) {
       console.log(error);
@@ -28,4 +27,4 @@ class amqp {
   }
 }
 
-module.exports = amqp;
+export default amqp;
