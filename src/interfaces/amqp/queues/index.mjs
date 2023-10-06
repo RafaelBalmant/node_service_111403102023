@@ -1,6 +1,6 @@
-const connect = require("../connect");
-const orders = require("./orders");
-const shipments = require("./shipments");
+import connect from "../connect.mjs";
+import orders from "./orders/index.mjs";
+import shipments from "./shipments/index.mjs";
 
 /**
    * This file is responsible for starting all the dependencies necessary for the operation of the queues at the AMQP communication level.
@@ -28,4 +28,4 @@ async function initQueues() {
     }
 }
 
-module.exports = initQueues();
+export default initQueues();

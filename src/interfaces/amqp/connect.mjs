@@ -1,6 +1,6 @@
-const amqplib = require("amqplib");
+import amqplib from "amqplib";
 
-async function connect()  {
+export default async function connect()  {
     try {
       const connection = await amqplib.connect("amqp://rabbitmq:5672");
       return connection;
@@ -8,5 +8,3 @@ async function connect()  {
       console.log(error)
     }
   }
-
-  module.exports = connect;

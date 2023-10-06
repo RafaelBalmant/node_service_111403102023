@@ -1,4 +1,4 @@
-const amqplib = require("amqplib");
+import amqplib from "amqplib";
 
 /**
    * The purpose of this file is to facilitate communication between the package and our system, 
@@ -27,4 +27,4 @@ class amqp {
   }
 }
 
-module.exports = amqp;
+export default amqp;

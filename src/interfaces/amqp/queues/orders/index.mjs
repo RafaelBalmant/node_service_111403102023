@@ -1,15 +1,14 @@
-const amqp = require("../../index");
+import amqp from "../../index.mjs";
 
-class shipmentsQueue extends amqp {
+export default class ordersQueue extends amqp {
     name;
     options;
     constructor(connection) {
         super(connection);
-        this.name = 'shipments';
+        this.name = 'orders';
         this.options = {
             durable: true
         };
     }
 };
 
-module.exports = shipmentsQueue;
