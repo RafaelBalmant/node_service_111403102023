@@ -1,5 +1,3 @@
-import amqplib from "amqplib";
-
 /**
    * The purpose of this file is to facilitate communication between the package and our system, 
    * thereby adding an extra layer of security to enforce, monitor, or implement any necessary 

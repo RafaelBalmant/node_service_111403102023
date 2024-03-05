@@ -1,3 +1,3 @@
-import queue from './interfaces/amqp/queues/index.mjs';
+import './infra/amqp/queues/initQueues.mjs';
 
 console.log("hello world")
