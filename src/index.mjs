@@ -1,3 +1,5 @@
-import './infra/amqp/queues/initQueues.mjs';
+import initQueues from './infra/amqp/queues/initQueues.mjs';
 
-console.log("hello world")
+const { ordersQueue } = await initQueues();
+
+console.log(ordersQueue)

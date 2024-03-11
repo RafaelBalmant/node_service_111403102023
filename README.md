@@ -25,4 +25,18 @@ docker-compose logs -f <service_name>
 
 Replace `<service_name>` with the actual name of the service you want to monitor the logs for.
 
+#### Access Rabbitmq Admin
 
+```bash
+ http://localhost:15672
+ username: guest
+ password: guest
+```
+
+#### Access PG Admin
+
+```bash
+ http://localhost:8080/
+ username: postgres
+ password: password
+```

@@ -10,7 +10,7 @@ import shipments from "./shipments/index.mjs";
 
 async function initQueues() {
 
-    async function createQueues () {
+    try {
         const connection = await connect();
 
         const ordersQueue = new orders(connection);
@@ -18,14 +18,16 @@ async function initQueues() {
 
         await ordersQueue.createQueue(ordersQueue.name, ordersQueue.options);
         await shipmentsQueue.createQueue(shipmentsQueue.name, shipmentsQueue.options);
-    }
 
-    try {
-        await createQueues();
+        return {
+            ordersQueue,
+            shipmentsQueue
+        }
+        
     } catch (error) {
         console.log(error);
         throw new Error("something in the amqp layer went wrong");
     }
 }
 
-export default initQueues();
+export default initQueues;
