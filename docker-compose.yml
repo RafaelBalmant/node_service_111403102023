@@ -13,6 +13,9 @@ services:
     networks:
       - node-network
   node:
+    depends_on:
+      - rabbitmq
+      - db
     build: 
       context: .
       dockerfile: Dockerfile
@@ -22,6 +25,32 @@ services:
       - "3000:3000"
     networks:
       - node-network
+  db:
+    image: postgres
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+  pgadmin:
+    user: root
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 8080:80
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
 networks:
   node-network:
     driver: bridge
