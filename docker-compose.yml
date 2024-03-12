@@ -37,6 +37,8 @@ services:
       - 5432:5432
     volumes:
       - ./src/infra/database/init-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      networks:
+      - node-network
   pgadmin:
     user: root
     image: dpage/pgadmin4:latest
@@ -51,6 +53,8 @@ services:
       - 8080:80
     volumes:
       - ./data/pgadmin:/var/lib/pgadmin
+    networks:
+      - node-network
 networks:
   node-network:
     driver: bridge
