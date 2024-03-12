@@ -37,6 +37,6 @@ Replace `<service_name>` with the actual name of the service you want to monitor
 
 ```bash
  http://localhost:8080/
- username: postgres
+ username: user@localhost.com
  password: password
 ```

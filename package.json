@@ -3,7 +3,8 @@
   "packageManager": "yarn@3.6.3",
   "type": "module",
   "scripts": {
-    "dev": "npx nodemon src/index.mjs"
+    "dev": "npx nodemon src/index.mjs",
+    "bash:db": "docker exec -it node_service_111403102023-db-1 /bin/bash"
   },
   "devDependencies": {
     "nodemon": "3.0.1"

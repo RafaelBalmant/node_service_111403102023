@@ -1,3 +1,4 @@
+
 loading() {
     local pid=$1
     local delay=0.1
@@ -13,13 +14,14 @@ loading() {
 
     printf "    \b\b\b\b"
 }
-echo "WARNING! - Stopping all running containers "
+echo "⚠️ WARNING! - Stopping all running containers and images ⚠️ "
+docker compose down -v
 docker kill $(docker ps -q)
 
-docker compose up -d rabbitmq
-echo "Waiting for RabbitMQ to start"
+docker compose up -d rabbitmq 
+echo "🐰 Waiting for RabbitMQ to start 🚀"
 sleep 5 & loading $! # wait for rabbitmq to start
 docker compose up -d db
 docker compose up -d pgadmin
 docker compose up -d node
-docker compose logs -f
+docker compose logs -f node
