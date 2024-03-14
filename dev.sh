@@ -15,7 +15,7 @@ loading() {
     printf "    \b\b\b\b"
 }
 echo "⚠️ WARNING! - Stopping all running containers and images ⚠️ "
-docker compose down -v
+docker compose down rabbitmq db pgadmin node
 
 docker compose up -d rabbitmq 
 echo "🐰 Waiting for RabbitMQ to start 🚀"

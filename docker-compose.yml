@@ -1,6 +1,7 @@
 version: '3'
 services:
   rabbitmq:
+    container_name: rabbitmq
     image: rabbitmq:3.6.14-management
     healthcheck:
         test: ["CMD", "curl", "-f", "http://127.0.0.1:5672"]
@@ -13,6 +14,7 @@ services:
     networks:
       - node-network
   node:
+    container_name: node
     depends_on:
       - rabbitmq
       - db
@@ -26,6 +28,7 @@ services:
     networks:
       - node-network
   db:
+    container_name: postgres
     image: postgres
     restart: always
     # set shared memory limit when using docker-compose
@@ -40,9 +43,9 @@ services:
     networks:
       - node-network
   pgadmin:
+    container_name: pgadmin
     user: root
     image: dpage/pgadmin4:latest
-    container_name: pgadmin
     restart: always
     depends_on:
       - db
