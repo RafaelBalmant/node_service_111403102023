@@ -1,6 +1,6 @@
-import connect from "../connect.mjs";
-import orders from "./orders/index.mjs";
-import shipments from "./shipments/index.mjs";
+import connect from "../connect";
+import orders from "./orders";
+import shipments from "./shipments";
 
 /**
    * This file is responsible for starting all the dependencies necessary for the operation of the queues at the AMQP communication level.
@@ -23,7 +23,7 @@ async function initQueues() {
             ordersQueue,
             shipmentsQueue
         }
-        
+
     } catch (error) {
         console.log(error);
         throw new Error("something in the amqp layer went wrong");

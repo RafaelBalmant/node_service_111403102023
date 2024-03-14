@@ -1,8 +1,10 @@
-import amqp from "../../index.mjs";
+import amqp from "../../index";
 
 export default class shipmentsQueue extends amqp {
-    name;
-    options;
+    name: string;
+    options: {
+        durable: boolean;
+    };
     constructor(connection) {
         super(connection);
         this.name = 'shipments';

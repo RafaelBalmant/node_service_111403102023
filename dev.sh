@@ -16,7 +16,6 @@ loading() {
 }
 echo "⚠️ WARNING! - Stopping all running containers and images ⚠️ "
 docker compose down -v
-docker kill $(docker ps -q)
 
 docker compose up -d rabbitmq 
 echo "🐰 Waiting for RabbitMQ to start 🚀"

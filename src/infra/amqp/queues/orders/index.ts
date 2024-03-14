@@ -1,4 +1,4 @@
-import amqp from "../../index.mjs";
+import amqp from "../../index";
 
 export default class ordersQueue extends amqp {
     name;

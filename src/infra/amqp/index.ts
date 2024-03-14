@@ -11,7 +11,7 @@ class amqp {
   constructor(connection) {
     this.connection = connection;
   }
-  
+
   async createQueue(name, type) {
     try {
       const channel = await this.connection.createChannel();
