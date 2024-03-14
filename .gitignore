@@ -3,3 +3,5 @@ node_modules
 .yarn
 .env
 data/pgadmin/**/*
+data/pgadmin/*.db
+data/pgadmin/pgadmin4.db

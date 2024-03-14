@@ -1,7 +1,15 @@
-import initQueues from './infra/amqp/queues/initQueues';
+import initQueues from './interfaces/amqp/queues/initQueues';
 
 (async () => {
     const { ordersQueue } = await initQueues();
-
-    console.log("app starts");
+    const container = {
+        infra: {
+            amqp: {
+                queues: {
+                    ordersQueue
+                }
+            }
+        }
+    }
+    return container;
 })();

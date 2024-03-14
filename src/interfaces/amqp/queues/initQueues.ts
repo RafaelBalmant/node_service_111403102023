@@ -16,8 +16,8 @@ async function initQueues() {
         const ordersQueue = new orders(connection);
         const shipmentsQueue = new shipments(connection);
 
-        await ordersQueue.createQueue(ordersQueue.name, ordersQueue.options);
-        await shipmentsQueue.createQueue(shipmentsQueue.name, shipmentsQueue.options);
+        await ordersQueue.createQueue();
+        await shipmentsQueue.createQueue();
 
         return {
             ordersQueue,
