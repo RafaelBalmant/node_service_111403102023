@@ -3,7 +3,7 @@ import { Connection, Options } from "amqplib";
 export default class shipmentsQueue {
     name: string;
     options: Options.AssertQueue;
-    connection: any;
+    connection: Connection;
     constructor(connection: Connection) {
         this.connection = connection;
         this.name = 'orders';

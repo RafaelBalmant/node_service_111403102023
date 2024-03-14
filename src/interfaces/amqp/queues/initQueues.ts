@@ -1,3 +1,4 @@
+import { Connection } from "amqplib";
 import connect from "../connect";
 import orders from "./orders";
 import shipments from "./shipments";
@@ -11,7 +12,7 @@ import shipments from "./shipments";
 async function initQueues() {
 
     try {
-        const connection = await connect();
+        const connection: Connection = await connect();
 
         const ordersQueue = new orders(connection);
         const shipmentsQueue = new shipments(connection);
