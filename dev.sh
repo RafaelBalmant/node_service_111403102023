@@ -14,11 +14,17 @@ loading() {
 
     printf "    \b\b\b\b"
 }
-echo "⚠️ WARNING! - Stopping all running containers and images ⚠️ "
-docker compose down rabbitmq db pgadmin node
-
+echo 
+echo " ⚠️ Would you like to reset the containers? (You will lose saved data)? (s/n) ⚠️"
+read resposta 
+if [ "$resposta" == "s" ]; then
+    docker compose down rabbitmq db pgadmin node
+fi
+echo 
 docker compose up -d rabbitmq 
+echo 
 echo "🐰 Waiting for RabbitMQ to start 🚀"
+echo 
 sleep 5 & loading $! # wait for rabbitmq to start
 docker compose up -d db
 docker compose up -d pgadmin

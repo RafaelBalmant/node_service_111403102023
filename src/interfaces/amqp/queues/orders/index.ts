@@ -1,22 +1,9 @@
-import { Options, Connection } from "amqplib";
+import { Connection } from "amqplib";
+import Queue from "../queue";
 
-export default class ordersQueue {
-    name: string;
-    options: Options.AssertQueue;
-    connection: any;
+export default class OrdersQueue extends Queue {
     constructor(connection: Connection) {
-        this.connection = connection;
-        this.name = 'orders';
-        this.options = {
-            durable: true
-        };
-    }
-
-    async createQueue(): Promise<any> {
-        const channel = await this.connection.createChannel();
-        const newQueue = channel.assertQueue(this.name, this.options);
-        console.log("created queue: ", this.name);
-        return newQueue;
+        super(connection, 'orders', { durable: true })
     }
 };
 

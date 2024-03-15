@@ -2,7 +2,7 @@
   "name": "docker",
   "packageManager": "yarn@3.6.3",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon src/container.ts",
     "bash:db": "docker exec -it node_service_111403102023-db-1 /bin/bash"
   },
   "devDependencies": {
